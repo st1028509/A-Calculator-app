@@ -1,0 +1,45 @@
+package com.example.calculator
+
+import android.annotation.SuppressLint
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import org.w3c.dom.Text
+
+class MainActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId", "WrongViewCast")
+    override fun onCreate( savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+        var AnswerDisplay = findViewById<TextView>(R.id.Answer)
+        var FirstNumber = findViewById<EditText>(R.id.FirstNumber)
+        var SecondNumber = findViewById<EditText>(R.id.SecondNumber)
+
+        var PlusButton = findViewById<Button>(R.id.PlusButton)
+        var MinusButton = findViewById<Button>(R.id.MinusButton)
+        var MultiplicationButton = findViewById<Button>(R.id.MultiplicationButton)
+        var DivideButton = findViewById<Button>(R.id.DivideButton)
+
+        PlusButton.setOnClickListener {
+            var DifferenceStorage = FirstNumber.text.toString().toInt() + SecondNumber.text.toString().toInt()
+            AnswerDisplay.text = DifferenceStorage.toString()
+        }
+        MinusButton.setOnClickListener {
+            var DifferenceStorage = FirstNumber.text.toString().toInt() - SecondNumber.text.toString().toInt()
+            AnswerDisplay.text = DifferenceStorage.toString()
+        }
+        MultiplicationButton.setOnClickListener {
+            var DifferenceStorage = FirstNumber.text.toString().toInt() * SecondNumber.text.toString().toInt()
+            AnswerDisplay.text = DifferenceStorage.toString()
+        }
+        DivideButton.setOnClickListener {
+            var DifferenceStorage = FirstNumber.text.toString().toInt() / SecondNumber.text.toString().toInt()
+            AnswerDisplay.text = DifferenceStorage.toString()
+        }
+
+    }
+}
